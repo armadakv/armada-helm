@@ -343,11 +343,6 @@ raft:
   # -- port: Port number for internal communication, cannot be changed after cluster startup.
   port: 5012
 
-  # -- logdb: Defines the implementation to use for LogDB store. Options are pebble (legacy) or tan (default).
-  #    tan is less space efficient but significantly better at both memory and cpu usage.
-  #    This option currently cannot be changed after cluster is started without restoring data from snapshot or backup.
-  logdb: tan
-
   # -- rtt: Defines the average Round Trip Time (RTT) between two NodeHost instances.
   #   Such an RTT interval is internally used as a logical clock tick, Raft heartbeat and election intervals
   #   are both defined in terms of how many such RTT intervals. Note that RTTMillisecond is the combined delays

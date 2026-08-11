@@ -62,6 +62,7 @@ spec:
           {{- end }}
         command:
         - "armada"
+        args:
         - "{{ .Values.mode }}"
         - "--memberlist.cluster-name={{ .Values.cluster.name }}"
         - "--memberlist.node-name=$(POD_NAME)"
@@ -76,7 +77,6 @@ spec:
         - "--api.cert-filename=/api-cert/tls.crt"
         - "--api.key-filename=/api-cert/tls.key"
         - "--rest.address=http://0.0.0.0:{{ .Values.metricsPort }}"
-        - "--raft.logdb={{ .Values.raft.logdb }}"
         - "--raft.snapshot-recovery-type={{ .Values.raft.snapshotRecoveryType }}"
         - "--raft.address=$(POD_NAME).{{ template "armada.name" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.raft.port }}"
         - "--raft.listen-address=0.0.0.0:{{ .Values.raft.port }}"
