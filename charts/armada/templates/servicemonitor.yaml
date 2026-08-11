@@ -1,0 +1,20 @@
+{{- if .Values.serviceMonitorEnabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ template "armada.name" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "armada.labels" . | nindent 4 }}
+spec:
+  jobLabel: app.kubernetes.io/name
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ template "armada.name" . }}
+  namespaceSelector:
+    matchNames:
+    -  {{ .Release.Namespace }}
+  endpoints:
+  - port: http-metrics
+    interval: 30s
+{{ end }}

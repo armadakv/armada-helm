@@ -1,7 +1,7 @@
 .PHONY: test
 test:
-	helm template charts/regatta > /dev/null
-	helm template charts/regatta-backup > /dev/null
+	helm template charts/armada > /dev/null
+	helm template charts/armada-backup > /dev/null
 
 # Run docs generator
 .PHONY: docs

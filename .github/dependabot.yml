@@ -5,5 +5,5 @@ updates:
   schedule:
     interval: "weekly"
   reviewers:
-  - "jamf/opensource-regatta-write"
+  - "armadakv/armada-write"
 

@@ -1,0 +1,47 @@
+{{- if .Values.networkPolicy.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ template "armada.name" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "armada.labels" . | nindent 4 }}
+spec:
+  podSelector:
+    matchLabels:
+      {{- include "armada.selectorLabels" . | nindent 6 }}
+  {{ if or .Values.networkPolicy.ingress .Values.networkPolicy.egress }}
+  policyTypes:
+  {{- end}}
+  {{- if .Values.networkPolicy.ingress }}
+  - Ingress
+  {{- end }}
+  {{- if .Values.networkPolicy.egress }}
+  - Egress
+  {{- end }}
+  {{- if .Values.networkPolicy.ingress }}
+  ingress:
+  - ports:
+    - port: {{ .Values.raft.port }}
+      protocol: UDP
+    from:
+    - podSelector:
+        matchLabels:
+          {{- include "armada.selectorLabels" . | nindent 10 }}
+  {{- .Values.networkPolicy.ingress | toYaml | nindent 2 }}
+  {{- end }}
+  {{- if .Values.networkPolicy.egress }}
+  egress:
+  - ports:
+    - port: {{ .Values.raft.port }}
+      protocol: UDP
+    to:
+    - podSelector:
+        matchLabels:
+          {{- include "armada.selectorLabels" . | nindent 10 }}
+  - ports:
+    - port: 53
+      protocol: UDP
+  {{- .Values.networkPolicy.egress | toYaml | nindent 2 }}
+  {{- end }}
+{{- end}}

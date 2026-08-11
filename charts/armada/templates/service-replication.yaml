@@ -1,0 +1,23 @@
+{{ if and .Values.replication.server.enabled (eq .Values.mode "leader") }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "armada.name" . }}-replication
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "armada.labels" . | nindent 4 }}
+  {{ with .Values.replication.server.service.annotations }}
+  annotations:
+    {{ . | toYaml | nindent 4 }}
+  {{ end }}
+spec:
+  type: {{ .Values.replication.server.service.type }}
+  externalTrafficPolicy: {{ .Values.replication.server.service.externalTrafficPolicy }}
+  selector:
+    {{- include "armada.selectorLabels" . | nindent 6 }}
+  ports:
+  - name: https-repl
+    targetPort: https-repl
+    port: {{ .Values.replication.server.port }}
+{{ end }}

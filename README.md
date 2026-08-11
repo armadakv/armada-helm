@@ -1,13 +1,13 @@
-# Regatta Helm Chart
+# Armada Helm Chart
 
-Regatta Helm is a repository containing Helm chart for the distributed key-value store
-[**Regatta**](https://github.com/jamf/regatta).
+Armada Helm is a repository containing Helm chart for the distributed key-value store
+[**Armada**](https://github.com/armadakv/armada).
 The chart repository can be added by running the following command:
 
 ```bash
-helm repo add regatta https://jamf.github.io/regatta-helm
+helm repo add armada https://armadakv.github.io/armada-helm
 ```
 
-See [Regatta Helm Chart documentation](charts/regatta/README.md), [Regatta Helm Chart changelog](charts/regatta/CHANGELOG.md),
-and [Regatta documentation](https://engineering.jamf.com/regatta) for more information about Regatta.
+See [Armada Helm Chart documentation](charts/armada/README.md), [Armada Helm Chart changelog](charts/armada/CHANGELOG.md),
+and [Armada documentation](https://armadakv.io) for more information about Armada.
 
