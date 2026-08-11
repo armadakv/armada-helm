@@ -1,6 +1,6 @@
 # armada-backup
 
-![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.5.1](https://img.shields.io/badge/AppVersion-0.5.1-informational?style=flat-square)
+![Version: 0.5.0](https://img.shields.io/badge/Version-0.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.1.0](https://img.shields.io/badge/AppVersion-0.1.0-informational?style=flat-square)
 
 Armada is a distributed key-value store. Armada is designed as easy to deploy, kubernetes friendly with emphasis
 on high read throughput and low operational cost. Purpose of armada-backup is as the name suggest backup Armada store into configurable sink at periodic interval.
@@ -42,14 +42,14 @@ Kubernetes: `>= 1.21.0`
 | sink.image | object | `{"imagePullPolicy":"IfNotPresent","repository":"peakcom/s5cmd","tag":"v2.2.2"}` | image: S3 backup tool image override. |
 | sink.image.imagePullPolicy | string | `"IfNotPresent"` | imagePullPolicy: ref: https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy |
 | sink.resources | object | `{"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"200m","memory":"128Mi"}}` | resources: Define the resources of the container |
-| source | object | `{"address":"armada-api:8443","ca":{"secretKind":"none","value":"secret-token"},"image":{"imagePullPolicy":"IfNotPresent","repository":"ghcr.io/armadakv/armada","tag":"v0.5.1"},"resources":{"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"200m","memory":"512Mi"}},"token":{"secretKind":"none","value":"secret-token"}}` | source: Source container configuration. |
+| source | object | `{"address":"armada-api:8443","ca":{"secretKind":"none","value":"secret-token"},"image":{"imagePullPolicy":"IfNotPresent","repository":"ghcr.io/armadakv/armada","tag":"v0.1.0"},"resources":{"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"200m","memory":"512Mi"}},"token":{"secretKind":"none","value":"secret-token"}}` | source: Source container configuration. |
 | source.address | string | `"armada-api:8443"` | address: Armada API server address. |
 | source.ca | object | `{"secretKind":"none","value":"secret-token"}` | ca:   Depending on value of `secretKind`     - sealedSecret: enter the encrypted value     - plaintext: enter the plaintext secret value     - none: the field is ignored     - ref: the reference to existing token |
 | source.ca.secretKind | string | `"none"` | secretKind:   May be one of:   - sealedSecret: Use if you have SealedSecrets support on your cluster. (https://sealed-secrets.netlify.app/)   - plaintext: Use to create Opaque Secret from the plaintext.   - ref: Use to reference token from existing secret.   - none: Do not create the secret with the token at all. The secret must be provided externally.      Secret example:         apiVersion: v1        kind: Secret        metadata:          name: armada-backup-api-cert        data:          token: c2VjcmV0LXRva2Vu  |
 | source.ca.value | string | `"secret-token"` | value:   Based on the secretKind it may be literal token, the SealedSecret to create or a reference to existing secret. |
 | source.image.imagePullPolicy | string | `"IfNotPresent"` | imagePullPolicy: ref: https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy |
 | source.image.repository | string | `"ghcr.io/armadakv/armada"` | repository: Default image repository |
-| source.image.tag | string | `"v0.5.1"` | tag: Override to use different image version |
+| source.image.tag | string | `"v0.1.0"` | tag: Override to use different image version |
 | source.resources | object | `{"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"200m","memory":"512Mi"}}` | resources: Define the resources of the container |
 | source.token | object | `{"secretKind":"none","value":"secret-token"}` | token:   Depending on value of `secretKind`     - sealedSecret: enter the encrypted value     - plaintext: enter the plaintext secret value     - none: the field is ignored     - ref: the reference to existing token |
 | source.token.secretKind | string | `"none"` | secretKind:   May be one of:   - sealedSecret: Use if you have SealedSecrets support on your cluster. (https://sealed-secrets.netlify.app/)   - plaintext: Use to create Opaque Secret from the plaintext.   - ref: Use to reference token from existing secret.   - none: Do not create the secret with the token at all. The secret must be provided externally.      Secret example:         apiVersion: v1        kind: Secret        metadata:          name: armada-backup-maintenance-token        data:          token: c2VjcmV0LXRva2Vu  |
