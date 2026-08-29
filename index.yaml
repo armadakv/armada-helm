@@ -1,0 +1,52 @@
+apiVersion: v1
+entries:
+  armada:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2026-08-29T06:38:16.095237933Z"
+    description: 'Armada is a distributed key-value store. Armada is designed as easy
+      to deploy, kubernetes friendly with emphasis on high read throughput and low
+      operational cost. '
+    digest: c997b46928b23b852f1ef3d62356e36167bf606606de9f8530a840bfb1b5d544
+    home: https://armadakv.io
+    icon: https://github.com/armadakv/armada/blob/master/docs/static/armada.png
+    keywords:
+    - Armada
+    - database
+    - key-value
+    kubeVersion: '>= 1.25.0'
+    maintainers:
+    - name: coufalja
+    - name: jsfpdn
+    name: armada
+    type: application
+    urls:
+    - https://github.com/armadakv/armada-helm/releases/download/armada-0.1.0/armada-0.1.0.tgz
+    version: 0.1.0
+  armada-backup:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2026-08-29T06:38:16.289734849Z"
+    description: 'Armada is a distributed key-value store. Armada is designed as easy
+      to deploy, kubernetes friendly with emphasis on high read throughput and low
+      operational cost. Purpose of armada-backup is as the name suggest backup Armada
+      store into configurable sink at periodic interval. '
+    digest: 7fbc5104dbe4495b2486ef084af2b7f98c4349e20d77fcb7ad801a32a5f52554
+    home: https://armadakv.io
+    icon: https://github.com/armadakv/armada/blob/master/docs/static/armada.png
+    keywords:
+    - Armada
+    - database
+    - key-value
+    - backup
+    - S3
+    kubeVersion: '>= 1.21.0'
+    maintainers:
+    - name: coufalja
+    - name: jsfpdn
+    name: armada-backup
+    type: application
+    urls:
+    - https://github.com/armadakv/armada-helm/releases/download/armada-backup-0.5.0/armada-backup-0.5.0.tgz
+    version: 0.5.0
+generated: "2026-08-29T06:38:16.289739779Z"
