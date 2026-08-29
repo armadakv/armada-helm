@@ -3,6 +3,28 @@ entries:
   armada:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2026-08-29T06:40:33.754222521Z"
+    description: 'Armada is a distributed key-value store. Armada is designed as easy
+      to deploy, kubernetes friendly with emphasis on high read throughput and low
+      operational cost. '
+    digest: 315ad90a180dd44452d0a871bbc7367d309086f31478d422cfb3f44182155e2f
+    home: https://armadakv.io
+    icon: https://github.com/armadakv/armada/blob/master/docs/static/armada.png
+    keywords:
+    - Armada
+    - database
+    - key-value
+    kubeVersion: '>= 1.25.0'
+    maintainers:
+    - name: coufalja
+    - name: jsfpdn
+    name: armada
+    type: application
+    urls:
+    - https://github.com/armadakv/armada-helm/releases/download/armada-0.1.1/armada-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2026-08-29T06:38:16.095237933Z"
     description: 'Armada is a distributed key-value store. Armada is designed as easy
       to deploy, kubernetes friendly with emphasis on high read throughput and low
@@ -49,4 +71,27 @@ entries:
     urls:
     - https://github.com/armadakv/armada-helm/releases/download/armada-backup-0.5.0/armada-backup-0.5.0.tgz
     version: 0.5.0
-generated: "2026-08-29T06:38:16.289739779Z"
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2026-08-29T06:40:33.903373918Z"
+    description: 'Purpose of armada-backup is as the name suggest backup Armada store
+      into configurable sink at periodic interval. '
+    digest: 99f59386b014f607862de21ba946e75c94dd0fba2717b740e02ca8e281758975
+    home: https://armadakv.io
+    icon: https://github.com/armadakv/armada/blob/master/docs/static/armada.png
+    keywords:
+    - Armada
+    - database
+    - key-value
+    - backup
+    - S3
+    kubeVersion: '>= 1.25.0'
+    maintainers:
+    - name: coufalja
+    - name: jsfpdn
+    name: armada-backup
+    type: application
+    urls:
+    - https://github.com/armadakv/armada-helm/releases/download/armada-backup-0.1.1/armada-backup-0.1.1.tgz
+    version: 0.1.1
+generated: "2026-08-29T06:40:33.90338589Z"
